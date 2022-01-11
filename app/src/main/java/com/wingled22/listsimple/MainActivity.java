@@ -21,31 +21,44 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.listview);
 
-        String[] stringList = {"list 1", "list 2", "list 3", "list 4", "list 5"};
+        //create product object
+        Product prod1 = new Product("Product 1", "Sample description", "100");
+        Product prod2 = new Product("Product 2", "Sample description", "100");
+        Product prod3 = new Product("Product 3", "Sample description", "100");
+        Product prod4 = new Product("Product 4", "Sample description", "100");
+        Product prod5 = new Product("Product 5", "Sample description", "100");
+        Product prod6 = new Product("Product 6", "Sample description", "100");
+        Product prod7 = new Product("Product 7", "Sample description", "100");
+        Product prod8 = new Product("Product 8", "Sample description", "100");
+        Product prod9 = new Product("Product 9", "Sample description", "100");
+        Product prod10 = new Product("Product 10", "Sample description", "100");
+        Product prod11 = new Product("Product 11", "Sample description", "100");
+        Product prod12 = new Product("Product 12", "Sample description", "100");
+        Product prod13 = new Product("Product 13", "Sample description", "100");
+        Product prod14 = new Product("Product 14", "Sample description", "100");
+        Product prod15 = new Product("Product 15", "Sample description", "100");
+        Product prod16 = new Product("Product 16", "Sample description", "100");
 
-        ArrayList<String> itemArrayList = new ArrayList<>();
+        //add the objects to the arraylist of products
+        ArrayList<Product> productsList = new ArrayList<>();
+        productsList.add(prod1);
+        productsList.add(prod2);
+        productsList.add(prod3);
+        productsList.add(prod4);
+        productsList.add(prod5);
+        productsList.add(prod6);
+        productsList.add(prod7);
+        productsList.add(prod8);
+        productsList.add(prod9);
+        productsList.add(prod10);
+        productsList.add(prod11);
+        productsList.add(prod12);
+        productsList.add(prod13);
+        productsList.add(prod14);
+        productsList.add(prod15);
+        productsList.add(prod16);
 
-        for(int i = 0;i< stringList.length;i++){
-            itemArrayList.add(stringList[i]);
-        }
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, itemArrayList);
-        listView.setAdapter(arrayAdapter);
-        listView.setClickable(true);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String positionString = String.valueOf(position);
-                String positionString = (String)parent.getItemAtPosition(position);
-                Toast toast =  Toast.makeText(getApplicationContext(), positionString, Toast.LENGTH_SHORT ) ;
-                toast.show();
-
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-//                builder.setMessage(positionString)
-//                        .setTitle("You click Somthing!");
-//                AlertDialog dialog = builder.create();
-            }
-        });
+        ProductListAdapter productListAdapter = new ProductListAdapter(this,R.layout.product_list,productsList);
+        listView.setAdapter(productListAdapter);
     }
 }
