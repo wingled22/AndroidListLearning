@@ -38,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         Product prod14 = new Product("Product 14", "Sample description", "100");
         Product prod15 = new Product("Product 15", "Sample description", "100");
         Product prod16 = new Product("Product 16", "Sample description", "100");
+        Product prod17 = new Product("Product 17", "Sample description", "100");
+        Product prod18 = new Product("Product 18", "Sample description", "100");
+        Product prod19 = new Product("Product 19", "Sample description", "100");
+        Product prod20 = new Product("Product 20", "Sample description", "100");
+
 
         //add the objects to the arraylist of products
         ArrayList<Product> productsList = new ArrayList<>();
@@ -57,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         productsList.add(prod14);
         productsList.add(prod15);
         productsList.add(prod16);
+        productsList.add(prod17);
+        productsList.add(prod18);
+        productsList.add(prod19);
+        productsList.add(prod20);
 
         ProductListAdapter productListAdapter = new ProductListAdapter(this,R.layout.product_list,productsList);
         listView.setAdapter(productListAdapter);

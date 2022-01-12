@@ -34,10 +34,12 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         //create a product object with the product information
         Product product = new Product(name,desc, price);
 
-        //create a layout inflater
-        LayoutInflater inflater =  LayoutInflater.from(context);
-        convertView = inflater.inflate(mresource,parent, false  );
-
+        //use this code for best performance
+        if(convertView == null){
+            //create a layout inflater
+            LayoutInflater inflater =  LayoutInflater.from(context);
+            convertView = inflater.inflate(mresource,parent, false  );
+        }
         //declare textfield object from the view
         TextView nameTF = (TextView) convertView.findViewById(R.id.prodName);
         TextView descTF = (TextView) convertView.findViewById(R.id.prodDesc);
@@ -46,7 +48,9 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         nameTF.setText(name);
         descTF.setText(desc);
         priceTF.setText(price);
-
         return convertView;
+
+
+//        return convertView;
     }
 }
