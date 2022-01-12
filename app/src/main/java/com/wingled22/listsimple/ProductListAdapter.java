@@ -35,22 +35,21 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         Product product = new Product(name,desc, price);
 
         //use this code for best performance
+        //encapsulate the code below with this condition
         if(convertView == null){
             //create a layout inflater
             LayoutInflater inflater =  LayoutInflater.from(context);
             convertView = inflater.inflate(mresource,parent, false  );
         }
+
         //declare textfield object from the view
-        TextView nameTF = (TextView) convertView.findViewById(R.id.prodName);
-        TextView descTF = (TextView) convertView.findViewById(R.id.prodDesc);
-        TextView priceTF = (TextView) convertView.findViewById(R.id.prodPrice);
+        TextView nameTF =  convertView.findViewById(R.id.prodName);
+        TextView descTF =  convertView.findViewById(R.id.prodDesc);
+        TextView priceTF =  convertView.findViewById(R.id.prodPrice);
 
         nameTF.setText(name);
         descTF.setText(desc);
         priceTF.setText(price);
         return convertView;
-
-
-//        return convertView;
     }
 }
