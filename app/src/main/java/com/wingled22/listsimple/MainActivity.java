@@ -20,28 +20,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = findViewById(R.id.listview);
+        ListView orderListView = findViewById(R.id.orderlistview);
+
+        ArrayList<String> stringList = new ArrayList<>() ;
 
         //create product object
-        Product prod1 = new Product("Product 1", "Sample description", "100");
-        Product prod2 = new Product("Product 2", "Sample description", "100");
-        Product prod3 = new Product("Product 3", "Sample description", "100");
-        Product prod4 = new Product("Product 4", "Sample description", "100");
-        Product prod5 = new Product("Product 5", "Sample description", "100");
-        Product prod6 = new Product("Product 6", "Sample description", "100");
-        Product prod7 = new Product("Product 7", "Sample description", "100");
-        Product prod8 = new Product("Product 8", "Sample description", "100");
-        Product prod9 = new Product("Product 9", "Sample description", "100");
-        Product prod10 = new Product("Product 10", "Sample description", "100");
-        Product prod11 = new Product("Product 11", "Sample description", "100");
-        Product prod12 = new Product("Product 12", "Sample description", "100");
-        Product prod13 = new Product("Product 13", "Sample description", "100");
-        Product prod14 = new Product("Product 14", "Sample description", "100");
-        Product prod15 = new Product("Product 15", "Sample description", "100");
-        Product prod16 = new Product("Product 16", "Sample description", "100");
-        Product prod17 = new Product("Product 17", "Sample description", "100");
-        Product prod18 = new Product("Product 18", "Sample description", "100");
-        Product prod19 = new Product("Product 19", "Sample description", "100");
-        Product prod20 = new Product("Product 20", "Sample description", "100");
+        Product prod1 = new Product(1,"Product 1", "Sample description", "100");
+        Product prod2 = new Product(2,"Product 2", "Sample description", "100");
+        Product prod3 = new Product(3,"Product 3", "Sample description", "100");
+        Product prod4 = new Product(4,"Product 4", "Sample description", "100");
+        Product prod5 = new Product(5,"Product 5", "Sample description", "100");
+        Product prod6 = new Product(6,"Product 6", "Sample description", "100");
+        Product prod7 = new Product(7,"Product 7", "Sample description", "100");
+        Product prod8 = new Product(8,"Product 8", "Sample description", "100");
+        Product prod9 = new Product(9,"Product 9", "Sample description", "100");
+        Product prod10 = new Product(10,"Product 10", "Sample description", "100");
+        Product prod11 = new Product(11,"Product 11", "Sample description", "100");
+        Product prod12 = new Product(12,"Product 12", "Sample description", "100");
+        Product prod13 = new Product(13,"Product 13", "Sample description", "100");
+        Product prod14 = new Product(14,"Product 14", "Sample description", "100");
+        Product prod15 = new Product(15,"Product 15", "Sample description", "100");
+        Product prod16 = new Product(16,"Product 16", "Sample description", "100");
+        Product prod17 = new Product(17,"Product 17", "Sample description", "100");
+        Product prod18 = new Product(18,"Product 18", "Sample description", "100");
+        Product prod19 = new Product(19,"Product 19", "Sample description", "100");
+        Product prod20 = new Product(20,"Product 20", "Sample description", "100");
 
 
         //add the objects to the arraylist of products
@@ -69,5 +72,27 @@ public class MainActivity extends AppCompatActivity {
 
         ProductListAdapter productListAdapter = new ProductListAdapter(this,R.layout.product_list,productsList);
         listView.setAdapter(productListAdapter);
+        listView.setClickable(true);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String positionString = String.valueOf(position);
+
+
+
+                Product product = (Product) parent.getItemAtPosition(position);
+
+                stringList.add("ID: "+ product.getId()+". Name: "+product.getName());
+
+                ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, stringList);
+                orderListView.setAdapter(arrayAdapter);
+
+
+                Toast toast =  Toast.makeText(MainActivity.this, "ID: "+ product.getId()+". Name: "+product.getName(), Toast.LENGTH_SHORT ) ;
+                toast.show();
+
+            }
+        });
     }
 }

@@ -9,8 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class ProductListAdapter extends ArrayAdapter<Product> {
     private static final String TAG = "ProductListAdapter";
@@ -27,12 +31,13 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //get product information
+        int id = getItem(position).getId();
         String name = getItem(position).getName();
         String desc = getItem(position).getDescription();
         String price = getItem(position).getPrice();
 
         //create a product object with the product information
-        Product product = new Product(name,desc, price);
+        Product product = new Product(id,name,desc, price);
 
         //use this code for best performance
         //encapsulate the code below with this condition

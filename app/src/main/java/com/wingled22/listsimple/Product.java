@@ -1,14 +1,24 @@
 package com.wingled22.listsimple;
 
 public class Product {
+    private int id;
     private String Name;
     private String Description;
     private String Price;
 
-    public Product(String name, String description, String price) {
+    public Product(int id, String name, String description, String price) {
+        this.id = id;
         Name = name;
         Description = description;
         Price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
